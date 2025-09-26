@@ -1,0 +1,67 @@
+import 'package:flutter/material.dart';
+import 'Primera.dart';
+import 'Segunda.dart';
+import 'Pract4.dart';
+import 'JuegoRPS.dart';
+
+class Inicio extends StatelessWidget {
+  const Inicio({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Inicio"),
+        backgroundColor: Colors.deepPurple,
+      ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.deepPurple, Colors.indigo],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _buildBoton(context, "Práctica 1", const Primera()),
+              const SizedBox(height: 20),
+              _buildBoton(context, "Práctica 2", const Segunda()),
+              const SizedBox(height: 20),
+              _buildBoton(context, "Práctica 4 (Registro)", const Prac4()),
+              const SizedBox(height: 20),
+              _buildBoton(context, "Juego: Piedra, Papel o Tijera", const JuegoRPS()),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // 🔹 Botón reutilizable
+  Widget _buildBoton(BuildContext context, String texto, Widget pantalla) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.deepPurple,
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 18),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        elevation: 6,
+      ),
+      onPressed: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => pantalla),
+      ),
+      child: Text(
+        texto,
+        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+}

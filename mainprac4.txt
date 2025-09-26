@@ -1,0 +1,16 @@
+import 'package:flutter/material.dart';
+import 'Pract4.dart';
+
+void main() => runApp(const MainPrac4());
+
+class MainPrac4 extends StatelessWidget {
+  const MainPrac4({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Prac4(),
+    );
+  }
+}
